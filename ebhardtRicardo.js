@@ -4,15 +4,15 @@ class Usuario {
 
 this.nombre = nombre;
 this.apellido = apellido;
-this.libros = [{nombre: 'El señor de los Anillos', autor: 'Tolkien'}, {nombre: 'Volver al Futuro', autor: 'Zemeckis'}];
-this.mascotas = ['Pirata'];
+this.libros = libros;
+this.mascotas = mascotas;
 console.log('Se instanció correctamente el objeto');
 }
 
 //Metodos:
 
 getFullName() {
-let fullName = [this.nombre,this.apellido];
+let fullName = "El nombre es: "+this.nombre+" "+this.apellido+"";
 return fullName
 }
 
@@ -30,20 +30,19 @@ this.libros.push({nombre: titulo, autor: nombreAutor});
 
 getBookNames(){
   
- let onlyAutor = []; 
+ let onlyNames = []; 
  for (let i = 0; i < this.libros.length; i++) {
- onlyAutor.push(this.libros[i].nombre);
- //console.log(onlyAutor);
+ onlyNames.push(this.libros[i].nombre);
+ 
 }
-return onlyAutor
-}
-
+return onlyNames
 }
 
-usuario = new Usuario("Jose","Peñalosa",{nombre: "The Promised Neverland", autor: "Shirai"},"Valkyrya");
+}
 
-fullName = usuario.getFullName();
-console.log(`el nombre del usuario es: ${fullName[0]} y su apellido es: ${fullName[1]}`);
+const usuario = new Usuario("Jose","Peñalosa",[{nombre: "The Promised Neverland", autor: "Shirai"},{nombre: "El señor de los Anillos", autor: "Tolkien"}],["Valkyrya", "Enya"]);
+
+console.log(usuario.getFullName());
 
 usuario.addMascota('Dartanian');
 
@@ -53,4 +52,4 @@ console.log(`El total de mascotas de usuario: ${totalMascotas}`);
 usuario.addBook('Dragon Ball', 'Toriyama');
 
 let bookNames = usuario.getBookNames();
-console.log(bookNames); 
+console.log(bookNames);
